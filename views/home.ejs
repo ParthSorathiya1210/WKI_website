@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Key | Home</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <script src="https://kit.fontawesome.com/9ce5c0a43e.js" crossorigin="anonymous"></script>
+
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/css/css.css">
+</head>
+
+<body id="ForScroll">
+    <header>
+        <p>
+            <img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979678/MediaDB/water_key_header_a2k8xq.png"
+                alt="Image not found">
+        </p>
+    </header>
+    <nav>
+        <a class="modernButton" href="home" style="color: aqua;">Home</a>
+        <a class="modernButton" href="about">About Us</a>
+        <a class="modernButton" href="products">Products</a>
+        <a class="modernButton" href="quality">Quality</a>
+        <a class="modernButton" href="contact">Cantact Us</a>
+        <a class="modernButton" href="team">Team</a>
+        <% if (isLoggedIn) { %>
+            <a class="modernButton" href="profile">Profile</a>
+            <a class="modernButton" href="logout">Logout</a>
+            <% } %>
+                <% if (userRole) { %>
+                    <a class="modernButton" href="addProduct">Launch Product</a>
+                    <% } %>
+                        <% if (!isLoggedIn) { %>
+                            <a class="modernButton" href="login">Login</a>
+                            <a class="modernButton" href="signup">Signup</a>
+                            <% } %>
+    </nav>
+    <script>
+        var nav = document.querySelector('nav');
+        let lastScrollPosition = window.scrollY;
+
+        function handleScroll() {
+            const currentScrollPosition = window.scrollY;
+
+            if (currentScrollPosition > lastScrollPosition + 10) {
+                nav.style.position = "relative";
+            } else if (currentScrollPosition < lastScrollPosition - 10 && window.innerWidth > 800 && currentScrollPosition > 1000) {
+                nav.style.position = "fixed";
+                setTimeout(() => {
+                    nav.style.position = "relative";
+                }, 5000);
+            }
+
+            lastScrollPosition = currentScrollPosition;
+        }
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+    </script>
+
+
+    <div class="Product-title">
+        <div class="headtext">Home - Water key</div>
+        <img style="margin-left: auto;"
+            src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979679/MediaDB/title_cover_xwfgsu.png" alt="">
+    </div>
+    <!-- </div> -->
+    <div class="show-box">
+        <div class="slides fade"
+            style="background-image: url('https://res.cloudinary.com/db84tbjky/image/upload/v1715979927/MediaDB/img1_dvt4qv.jpg');">
+            <!-- <img src="slide1.jpg" style="width:100%"> -->
+            <div style="min-height: 350px; padding: 5vh;" id="write">
+                <h2>An ISO 9001:2008 Company</h2>
+            </div>
+            <div class="bottompara" id="write">
+                <h4>The Water King submersible pump boasts robust construction and a durable design, ensuring
+                    reliable performance in various water pumping applications.</h4>
+            </div>
+        </div>
+        <div class="slides fade"
+            style="background-image: url('https://res.cloudinary.com/db84tbjky/image/upload/v1715979920/MediaDB/img2_qanrvu.jpg');">
+            <!-- <img src="slide5.jpg" style="width:100%"> -->
+            <div style="min-height: 350px; padding: 5vh;" id="write">
+                <h2>An ISO 9001:2008 Company</h2>
+                <h2>Wide Range Of High Efficiency Pump</h2>
+            </div>
+            <div class="bottompara" id="write">
+                <h4>Known for its energy efficiency, the pump incorporates advanced technology to optimize power
+                    consumption, providing cost-effective water pumping solutions while minimizing environmental
+                    impact.</h4>
+            </div>
+        </div>
+        <div class="slides fade"
+            style="background-image: url('https://res.cloudinary.com/db84tbjky/image/upload/v1715979928/MediaDB/img3_tuggqr.jpg');">
+            <!-- <img src="slide2.jpg" style="width:100%"> -->
+            <div style="min-height: 350px; padding: 5vh;" id="write">
+                <h2>Offering Reliable Water Pump Solution</h2>
+            </div>
+            <div class="bottompara" id="write">
+                <h4>The Water King submersible pump is equipped with a range of safety features, including overload
+                    protection and durable casing, ensuring long-lasting performance and peace of mind for users.
+                </h4>
+            </div>
+        </div>
+        <div class="slides fade"
+            style="background-image: url('https://res.cloudinary.com/db84tbjky/image/upload/v1715979926/MediaDB/img4_aygnik.jpg');">
+            <!-- <img src="slide3.jpg" style="width:100%"> -->
+            <div style="min-height: 350px; padding: 5vh;" id="write">
+                <h2>Modeling Good Idea Into Great Products</h2>
+            </div>
+            <div class="bottompara" id="write">
+                <h4>Designed for easy installation and maintenance, the Water King submersible pump features a
+                    user-friendly interface, allowing users to set up and operate the pump with minimal hassle.</h4>
+            </div>
+        </div>
+        <div class="slides fade"
+            style="background-image: url('https://res.cloudinary.com/db84tbjky/image/upload/v1715979928/MediaDB/img5_adyzrh.jpg');">
+            <!-- <img src="slide4.jpg" style="width:100%"> -->
+            <div style="min-height: 350px; padding: 5vh;" id="write">
+                <h2>Wide Range Of High Efficiency Pump</h2>
+            </div>
+            <div class="bottompara" id="write">
+                <h4>With a powerful motor and efficient pumping mechanism, this submersible pump by Water King
+                    delivers high water flow rates, making it ideal for both residential and commercial use.</h4>
+            </div>
+        </div>
+        <script>
+            let idx = 0;
+            slideshow();
+
+            function slideshow() {
+                let i;
+                let slides = document.getElementsByClassName("slides");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                idx++;
+                idx = idx % slides.length;
+                slides[idx].style.display = "block";
+                setTimeout(slideshow, 5000);
+            }
+        </script>
+    </div>
+    <main>
+        <center>
+            <!-- <img src="1.jpg" alt=""> -->
+            <h1 id="mainIntro">Our Introduction</h1>
+            <img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979679/MediaDB/PumpGroup_fyagwd.png"
+                alt="">
+        </center>
+        <script>
+            var img = document.querySelector('main center img');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 700) {
+                    img.style.width = "25%";
+                } else {
+                    img.style.width = ""; // Reset to the default width
+                }
+            });
+        </script>
+        <div id="mainIntro">
+            <p>
+            <h3>
+                <b>Water Key</b> is a quality-centered and professionally managed company engaged in
+                manufacturing
+                of
+                technically most
+                advanced Submersible pump sets. We started our journey in 2009. Today, with constant
+                co-operation of
+                our
+                customers we have become a trusted brand nationwide and have succeeded in achieving
+                highest level of
+                trust.
+
+                In this process, we have always welcomed customer’s suggestions as an invaluable
+                input to understand
+                the
+                scope and nature of environment within which our customer operate, so we can modify
+                and improve the
+                Pump
+                quality & range as per the customers requirement. It is our policy to deliver
+                products & services
+                that
+                satisfy the present & future requirements of our customers. We have always aimed for
+                the customer
+                satisfaction in terms of product performance and giving full value to his money.
+                Satisfied customer
+                is
+                our
+                highest achievement.
+            </h3>
+            </p>
+        </div>
+    </main>
+    <br><br><br><br><br><br><br>
+    <section>
+        <div class="title" id="achievedtitle">Our Certificate</div>
+        <div class="cardContainer" style="background-color: rgba(176, 224, 230, 0.512);">
+            <div class="card" id="Certificate">
+                <img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979678/MediaDB/swiss_jvemj2.png"
+                    id="cardphoto" alt="">
+                <div class="cardinfo">
+                    <div class="cardtitle">ISO Certificate</div>
+                </div>
+            </div>
+            <div class="card" id="Certificate">
+                <img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979677/MediaDB/NABCB_af3nbf.jpg"
+                    id="cardphoto" alt="">
+                <div class="cardinfo">
+                    <div class="cardtitle">NABCB cirtified</div>
+                </div>
+            </div>
+            <div class="card" id="Certificate">
+                <img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979678/MediaDB/EnergyRating_ybgv7c.jpg"
+                    id="cardphoto" alt="">
+                <div class="cardinfo">
+                    <div class="cardtitle">Energy Rating</div>
+                </div>
+            </div>
+            <div class="card" id="Certificate">
+                <img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979679/MediaDB/ISI1_chaotd.jpg"
+                    id="cardphoto" alt="">
+                <div class="cardinfo">
+                    <div class="cardtitle">ISI Certificate</div>
+                </div>
+            </div>
+            <div class="card" id="Certificate">
+                <img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979677/MediaDB/ISI2_dejv4r.jpg"
+                    id="cardphoto" alt="">
+                <div class="cardinfo">
+                    <div class="cardtitle">ISI Certificate</div>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 1200 && window.innerWidth >= 1300) {
+                    show3();
+                }
+                else if (window.innerWidth < 1300) {
+                    show3();
+                }
+            });
+
+            function show3() {
+                let cards = document.querySelectorAll(".card");
+                for (let idx = 0; idx < cards.length; idx++) {
+                    setTimeout(function () {
+                        cards[idx].style.opacity = "1";
+                        cards[idx].style.transform = "translateY(0%)";
+                    }, 600 * idx);
+                }
+            }
+        </script>
+    </section>
+
+    <br><br><br><br><br><br>
+    <br>
+    <div class="scrollingText">Areas Of Working</div>
+    <div class="cardContainer">
+        <div class="shapecard">
+            <div class="roundcard">
+                <i class="fa-solid fa-house-chimney-window"></i>
+            </div>
+            <br>
+            <div class="cardtitle">HOUSES</div>
+        </div>
+        <div class="shapecard">
+            <div class="roundcard">
+                <i class="fa-solid fa-hotel"></i>
+            </div>
+            <br>
+            <div class="cardtitle">
+                HOTELS & MALLS</div>
+        </div>
+        <div class="shapecard">
+            <div class="roundcard">
+                <i class="fa-solid fa-city"></i>
+            </div>
+            <br>
+            <div class="cardtitle">BUILDINGS</div>
+        </div>
+        <div class="shapecard">
+            <div class="roundcard">
+                <i class="fa-solid fa-industry"></i>
+
+            </div>
+            <br>
+            <div class="cardtitle">INDUSTRIAL</div>
+        </div>
+        <div class="shapecard">
+            <div class="roundcard">
+                <i class="fa-solid fa-sun-plant-wilt"></i>
+            </div>
+            <br>
+            <div class="cardtitle">FARM FEILDS</div>
+        </div>
+        <div class="shapecard">
+            <div class="roundcard">
+                <i class="fa-solid fa-water-ladder"></i>
+
+            </div>
+            <br>
+            <div class="cardtitle">SWIMMING POOLS</div>
+        </div>
+        <div class="shapecard">
+            <div class="roundcard">
+                <i class="fa-solid fa-tree"></i>
+            </div>
+            <br>
+            <div class="cardtitle">GARDEN</div>
+        </div>
+        <div class="shapecard">
+            <div class="roundcard">
+                <i class="fa-solid fa-snowplow"></i>
+            </div>
+            <br>
+            <div class="cardtitle">CONSTRUCTION</div>
+        </div>
+    </div>
+
+    <script>
+
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 2200 && window.innerWidth >= 1300) {
+                show();
+            }
+            else if (window.innerWidth < 1300) {
+                show();
+            }
+        });
+
+        function updateTextPosition() {
+            var scrollingText = document.querySelector(".scrollingText");
+            window.addEventListener("scroll", updateTextPosition);
+            if (window.scrollY > 2000 && window.innerWidth >= 1300) {
+
+                var scrollPosition = window.scrollY;
+                var newPosition = 12 + (scrollPosition - 2000) / 14;
+                scrollingText.style.left = newPosition + "%";
+            }
+
+        }
+
+        function show() {
+            let slides = document.getElementsByClassName("shapecard");
+            for (let idx = 0; idx < slides.length; idx++) {
+                setTimeout(function () {
+                    slides[idx].style.opacity = "1";
+                }, 400 * idx); // Adjust the time gap (in milliseconds) between each element
+            }
+        }
+
+        updateTextPosition();
+    </script>
+
+    <div class="leftswipe">OUR PRODUCTS</div>
+    <script>
+        var tText = document.querySelector(".leftswipe");
+        window.addEventListener("scroll", updatePosition);
+        window.addEventListener("resize", updatePosition); // Add resize event listener
+
+        function updatePosition() {
+            if (window.scrollY > 2400 && window.innerWidth >= 1300) {
+                var scrollPosition = window.scrollY;
+                var newPosition = 0 + (scrollPosition - 2400) / 14;
+                tText.style.right = newPosition + "%";
+            }
+        }
+
+        // Initial call to set the initial position
+        updatePosition();
+    </script>
+
+    <div class="cardContainer">
+        <% let count=0; %>
+            <% productsOpenWell.forEach(product=> { %>
+                <% if (count < 4) { %>
+                    <div>
+                        <a href="products/<%= product.id %>">
+                            <div class="card">
+                                <img src="<%= product.image_url %>" id="cardphoto" alt="<%= product.name %>">
+                                <div class="cardinfo">
+                                    <div class="cardtitle">
+                                        <%= product.name %>
+                                    </div>
+                                    <table class="cardtable">
+                                        <tr>
+                                            <td>Model no.</td>
+                                            <td>
+                                                <%= product.model_no %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td>
+                                                <%= product.price %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Height</td>
+                                            <td>
+                                                <%= product.type %>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <% count++; %>
+                        <% } %>
+                            <% }); %>
+    </div>
+
+
+    <div class="cardContainer">
+        <% count=0; %>
+            <% productsBorewell.forEach(product=> { %>
+                <% if (count < 4) { %>
+                    <div>
+                        <a href="products/<%= product.id %>">
+                            <div class="card">
+                                <div class="pcardphoto"><img src="<%= product.image_url %>" alt=""></div>
+                                <div class="cardinfo">
+                                    <div class="cardtitle">
+                                        <%= product.name %>
+                                    </div>
+                                    <table class="cardtable">
+                                        <tr>
+                                            <td>Model no.</td>
+                                            <td>
+                                                <%= product.model_no %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td>
+                                                <%= product.price %>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Type</td>
+                                            <td>
+                                                <%= product.type %>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <% count++; %>
+                        <% } %>
+                            <% }); %>
+    </div>
+
+
+
+    <div class="facttitle">Know More</div>
+    <script>
+        function updateTextPosition() {
+            var fText = document.querySelector(".facttitle");
+            window.addEventListener("scroll", updateTextPosition);
+            if (window.scrollY > 3300 && window.innerWidth >= 1300) {
+                var scrollPosition = window.scrollY;
+                var newPosition = 12 + (scrollPosition - 3900) / 14;
+                fText.style.left = newPosition + "%";
+            }
+        }
+    </script>
+    <div class="factory">
+        <div class="factimg"><img
+                src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979682/MediaDB/Sanjaybhai_Sorathiya_Veraval_Shed_Final_View_A_yrdnqd.jpg"
+                alt=""></div>
+        <div class="factname">
+            <h1>Know Us</h1>
+            <ul>
+                <li>This is our one and only brach at Rajkot.
+                </li>
+                <li>Welcome to Waterkey family.
+                </li>
+                <li>If you want to have dealership then call/mail us.
+                </li>
+                <li>Nature Of Bussiness : Manufacturer/Production
+                </li>
+                <li>Year Of Establishment : 2009
+                </li>
+                <li>GST No : 24AABFW0577F1ZB</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function fn() {
+            if (window.innerWidth >= 1300) {
+                const factory = document.querySelector('.factory');
+                const factname = document.querySelector('.factname');
+
+                factory.addEventListener('mouseover', function () {
+                    factname.style.opacity = "1";
+                    factname.style.left = "0%";
+                });
+
+                factory.addEventListener('mouseout', function () {
+                    factname.style.opacity = "0";
+                    factname.style.left = "-40%";
+                });
+            }
+        }
+        fn();
+    </script>
+    <a href="about">
+        <div class="title" id="title-a">Know more - click here</div>
+    </a>
+    <br><br><br><br><br>
+    <footer>
+        <div id="footer1">
+            <div class="foot">
+                <div id="centre"><br><br><br><img
+                        src="https://res.cloudinary.com/db84tbjky/image/upload/v1715980456/MediaDB/1_zdbju6.jpg" alt=""
+                        height="100"></div>
+                <div id="centre">
+                    <h1 style="color: red; font-family: 'Times New Roman', Times, serif;">Water King Industries</h1>
+                    <h3>An ISO 9001:2008 Company</h3>
+                    <h3>Wide Range Of High Efficiency Pump</h3>
+                </div>
+            </div>
+            <div class="foot">
+                <h1 style="color: aqua;">Contact Us</h1>
+                <div><a href="https://maps.app.goo.gl/ERtkoEhEcGEwsr2b7" target="_blank"><i
+                            class="fa-solid fa-map-location-dot" id="afLogo"></i></a> Plot No.
+                    Plot No. 7-A, Dhwani Industrial Park-6, Anand Liner Gate, <br>
+                    Near Bhumi Industrial, Veraval(Shapar), Rajkot - 360024, Gujarat, India.
+                </div><br>
+                <div><a href="tel:(+91) 99040 87518"><i class="fa-solid fa-phone-volume" id="afLogo"></i></a>Cell:
+                    91+
+                    99040 87518 (Suresh Patel)</div><br>
+                <div><a href="mailto:info@waterkingpumps.com"><i class="fa-solid fa-envelope" id="afLogo"></i></a><a
+                        href="mailto:info@waterkingpumps.com">info@waterkingpumps.com</a></div>
+                <br>
+
+                <h1>Follow Us</h1>
+                <div id="face" class="icon">
+                    <a href="#" target="_blank">
+                        <i class="fa-brands fa-facebook" id="afLogofollow"></i></a>
+                </div>
+                <div id="yout" class="icon">
+                    <a href="#" target="_blank"><i class="fa-brands fa-youtube" id="afLogofollow"></i></a>
+                </div>
+                <div id="insta" class="icon">
+                    <a href="#" target="_blank"><i class="fa-brands fa-instagram" id="afLogofollow"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="bottomfoot" style="background-color: #005a9a">
+            <div id="bfa">
+                <a class="modernButton" href="home" style="color: aqua;">Home</a>
+                <a class="modernButton" href="about">About Us</a>
+                <a class="modernButton" href="products">Products</a>
+                <a class="modernButton" href="quality">Quality</a>
+                <a class="modernButton" href="contact">Cantact Us</a>
+                <a class="modernButton" href="team">Team</a>
+                <% if (isLoggedIn) { %>
+                    <a class="modernButton" href="profile">Profile</a>
+                    <a class="modernButton" href="logout">Logout</a>
+                    <% } %>
+                        <% if (userRole) { %>
+                            <a class="modernButton" href="addProduct">Launch Product</a>
+                            <% } %>
+                                <% if (!isLoggedIn) { %>
+                                    <a class="modernButton" href="login">Login</a>
+                                    <a class="modernButton" href="signup">Signup</a>
+                                    <% } %>
+            </div>
+        </div>
+        <div id="bottomfoot">
+            <div>2019 © WaterKing Pumps, All rights Reserved.</div>
+            <div id="bfa">
+                <div><a href="me">Parth the developer and water key family owned.</a></div>
+            </div>
+        </div>
+    </footer>
+    <a href="#ForScroll" id="myBtn" title="Go to top"><i class="fa-solid fa-caret-up"></i></a>
+</body>
+
+</html>

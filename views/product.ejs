@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9ce5c0a43e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/css.css">
+    <title>Product</title>
+</head>
+
+<body id="ForScroll" style="background-color: rgb(226, 238, 248);">
+    <header>
+
+        <p>
+            <img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979678/MediaDB/water_key_header_a2k8xq.png" alt="Image not found">
+        </p>
+    </header>
+    <nav>
+        <a class="modernButton" href="home">Home</a>
+        <a class="modernButton" href="about">About Us</a>
+        <a class="modernButton" href="products" style="color: aqua;">Products</a>
+        <a class="modernButton" href="quality">Quality</a>
+        <a class="modernButton" href="contact">Cantact Us</a>
+        <a class="modernButton" href="team">Team</a>
+        <% if (isLoggedIn) {  %>
+            <a class="modernButton" href="profile">Profile</a>
+            <a class="modernButton" href="logout">Logout</a>
+        <% } %>
+        <% if (userRole) {  %>
+            <a class="modernButton" href="addProduct">Launch Product</a>
+        <% } %>
+        <% if (!isLoggedIn) {  %>
+            <a class="modernButton" href="login">Login</a>
+            <a class="modernButton" href="signup">Signup</a>
+        <% } %>
+    </nav>
+
+    <script>
+        var nav = document.querySelector('nav');
+        let lastScrollPosition = window.scrollY;
+
+        function handleScroll() {
+            const currentScrollPosition = window.scrollY;
+
+            if (currentScrollPosition > lastScrollPosition + 10) {
+                nav.style.position = "relative";
+            } else if (currentScrollPosition < lastScrollPosition - 10 && window.innerWidth > 800) {
+                nav.style.position = "fixed";
+                setTimeout(() => {
+                    nav.style.position = "relative";
+                }, 5000);
+            }
+
+            lastScrollPosition = currentScrollPosition;
+        }
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+    </script>
+
+    <div class="Product-title">
+        <div class="headtext">Our Proudly Made Products</div>
+        <img style="margin-left: auto;" src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979679/MediaDB/title_cover_xwfgsu.png" alt="">
+    </div>
+    <br><br><br>
+    <!-- <div class="cardContainer">
+        <div>
+            <a href="pro2.html">
+                <div class="card">
+                    <img src="Mini 1 HP.jpg" id="cardphoto" alt="">
+                    <div class="cardinfo">
+                        <div class="cardtitle">Mini Openwell Pump</div>
+                        <table class="cardtable">
+                            <tr>
+                                <td>Model no.</td>
+                                <td>202203034</td>
+                            </tr>
+                            <tr>
+                                <td>price</td>
+                                <td>32,500 /-</td>
+                            </tr>
+                            <tr>
+                                <td>height</td>
+                                <td>100 foot</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div> -->
+
+    <div class="cardContainer">
+        <% productsOpenWell.forEach(product=> { %>
+            <div>
+                <a href="products/<%= product.id %>">
+                    <div class="card">
+                        <img src="<%= product.image_url %>" id="cardphoto" alt="<%= product.name %>">
+                        <div class="cardinfo">
+                            <div class="cardtitle">
+                                <%= product.name %>
+                            </div>
+                            <table class="cardtable">
+                                <tr>
+                                    <td>Model no.</td>
+                                    <td>
+                                        <%= product.model_no %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Price</td>
+                                    <td>
+                                        <%= product.price %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Height</td>
+                                    <td>
+                                        <%= product.type %>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <% }); %>
+    </div>
+
+    <!-- <div class="cardContainer">
+        <div>
+            <a href="pro1.html">
+                <div class="card">
+                    <div class="pcardphoto"><img src="papudi.png" alt=""></div>
+                    <div class="cardinfo">
+                        <div class="cardtitle">Mini Openwell Pump</div>
+                        <table class="cardtable">
+                            <tr>
+                                <td>Model no.</td>
+                                <td>202203034</td>
+                            </tr>
+                            <tr>
+                                <td>price</td>
+                                <td>32,500 /-</td>
+                            </tr>
+                            <tr>
+                                <td>height</td>
+                                <td>100 foot</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div> -->
+
+    <div class="cardContainer">
+        <% productsBorewell.forEach(product=> { %>
+            <div>
+                <a href="products/<%= product.id %>">
+                    <div class="card">
+                        <div class="pcardphoto"><img src="<%= product.image_url %>" alt=""></div>
+                        <div class="cardinfo">
+                            <div class="cardtitle">
+                                <%= product.name %>
+                            </div>
+                            <table class="cardtable">
+                                <tr>
+                                    <td>Model no.</td>
+                                    <td>
+                                        <%= product.model_no %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Price</td>
+                                    <td>
+                                        <%= product.price %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Type</td>
+                                    <td>
+                                        <%= product.type %>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <% }); %>
+    </div>
+
+    <footer>
+        <div id="footer1">
+            <div class="foot">
+                <div id="centre"><br><br><br><img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715980456/MediaDB/1_zdbju6.jpg" alt="" height="100"></div>
+                <div id="centre">
+                    <h1 style="color: red; font-family: 'Times New Roman', Times, serif;">Water King Industries</h1>
+                    <h3>An ISO 9001:2008 Company</h3>
+                    <h3>Wide Range Of High Efficiency Pump</h3>
+                </div>
+            </div>
+            <div class="foot">
+                <h1 style="color: aqua;">Contact Us</h1>
+                <div><a href="https://maps.app.goo.gl/ERtkoEhEcGEwsr2b7" target="_blank"><i
+                            class="fa-solid fa-map-location-dot" id="afLogo"></i></a> Plot No.
+                    Plot No. 7-A, Dhwani Industrial Park-6, Anand Liner Gate, <br>
+                    Near Bhumi Industrial, Veraval(Shapar), Rajkot - 360024, Gujarat, India.
+                </div><br>
+                <div><a href="tel:(+91) 99040 87518"><i class="fa-solid fa-phone-volume" id="afLogo"></i></a>Cell:
+                    91+
+                    99040 87518 (Suresh Patel)</div><br>
+                <div><a href="mailto:info@waterkingpumps.com"><i class="fa-solid fa-envelope" id="afLogo"></i></a><a
+                        href="mailto:info@waterkingpumps.com">info@waterkingpumps.com</a></div>
+                <br>
+
+                <h1>Follow Us</h1>
+                <div id="face" class="icon">
+                    <a href="#" target="_blank">
+                        <i class="fa-brands fa-facebook" id="afLogofollow"></i></a>
+                </div>
+                <div id="yout" class="icon">
+                    <a href="#" target="_blank">
+                        <i class="fa-brands fa-youtube" id="afLogofollow"></i></a>
+                </div>
+                <div id="insta" class="icon">
+                    <a href="#" target="_blank"><i class="fa-brands fa-instagram" id="afLogofollow"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="bottomfoot" style="background-color: #005a9a">
+            <div id="bfa">
+                <a class="modernButton" href="home">Home</a>
+                <a class="modernButton" href="about">About Us</a>
+                <a class="modernButton" href="products" style="color: aqua;">Products</a>
+                <a class="modernButton" href="quality">Quality</a>
+                <a class="modernButton" href="contact">Cantact Us</a>
+                <a class="modernButton" href="team">Team</a>
+                <% if (isLoggedIn) {  %>
+                    <a class="modernButton" href="profile">Profile</a>
+                    <a class="modernButton" href="logout">Logout</a>
+                <% } %>
+                <% if (userRole) {  %>
+                    <a class="modernButton" href="addProduct">Launch Product</a>
+                <% } %>
+                <% if (!isLoggedIn) {  %>
+                    <a class="modernButton" href="login">Login</a>
+                    <a class="modernButton" href="signup">Signup</a>
+                <% } %>
+            </div>
+        </div>
+        <div id="bottomfoot">
+            <div>2019 © WaterKing Pumps, All rights Reserved.</div>
+            <div id="bfa">
+                <div><a href="me">Parth the developer and water key family owned.</a></div>
+            </div>
+        </div>
+    </footer>
+    <a href="#ForScroll" id="myBtn" title="Go to top"><i class="fa-solid fa-caret-up"></i></a>
+</body>
+
+</html>

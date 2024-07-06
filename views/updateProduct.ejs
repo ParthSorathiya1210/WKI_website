@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <!-- sdgfgf -->
+    <script src="https://kit.fontawesome.com/9ce5c0a43e.js" crossorigin="anonymous"></script>
+
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/css/css.css">
+</head>
+
+<body id="ForScroll">
+    <header>
+        <p>
+            <img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979678/MediaDB/water_key_header_a2k8xq.png" alt="Image not found">
+        </p>
+    </header>
+    <nav>
+        <a class="modernButton" href="/waterking/v1/home">Home</a>
+        <a class="modernButton" href="/waterking/v1/about">About Us</a>
+        <a class="modernButton" href="/waterking/v1/products" style="color: aqua;">Products</a>
+        <a class="modernButton" href="/waterking/v1/quality">Quality</a>
+        <a class="modernButton" href="/waterking/v1/contact">Cantact Us</a>
+        <a class="modernButton" href="/waterking/v1/team">Team</a>
+        <% if (isLoggedIn) {  %>
+            <a class="modernButton" href="/waterking/v1/profile">Profile</a>
+            <a class="modernButton" href="/waterking/v1/logout">Logout</a>
+        <% } %>
+        <% if (userRole) {  %>
+            <a class="modernButton" href="/waterking/v1/addProduct">Launch Product</a>
+        <% } %>
+        <% if (!isLoggedIn) {  %>
+            <a class="modernButton" href="/waterking/v1/login">Login</a>
+            <a class="modernButton" href="/waterking/v1/signup">Signup</a>
+        <% } %>
+    </nav>
+    <script>
+        var nav = document.querySelector('nav');
+        let lastScrollPosition = window.scrollY;
+
+        function handleScroll() {
+            const currentScrollPosition = window.scrollY;
+
+            if (currentScrollPosition > lastScrollPosition + 10) {
+                nav.style.position = "relative";
+            } else if (currentScrollPosition < lastScrollPosition - 10 && window.innerWidth > 800 && currentScrollPosition > 1000) {
+                nav.style.position = "fixed";
+                setTimeout(() => {
+                    nav.style.position = "relative";
+                }, 5000);
+            }
+
+            lastScrollPosition = currentScrollPosition;
+        }
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+    </script>
+
+    <div class="Product-title">
+        <div class="headtext">Edit Product</div>
+        <img style="margin-left: auto;" src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979679/MediaDB/title_cover_xwfgsu.png" alt="">
+    </div>
+
+    <div id="loginTable">
+        <form action="/waterking/v1/products/update_product/<%= productId %>" method="POST" enctype="multipart/form-data">
+            <table class="profile_table">
+                <th colspan="2" style="font-size:30px; color: bisque; background-color: rgb(1, 59, 98); padding: 10px;">Product Details
+                </th>
+                <tr>
+                    <td>Name* :</td>
+                    <td><input type="text" name="name" value="<%= product.name %>" required placeholder="Submersible Pump"></td>
+                </tr>
+                <tr>
+                    <td>Model No.* :</td>
+                    <td><input type="text" name="model_no" value="<%= product.model_no %>" required placeholder="SP123"></td>
+                </tr>
+                <tr>
+                    <td>Price* :</td>
+                    <td><input type="number" name="price" value="<%= product.price %>" required placeholder="15000"></td>
+                </tr>
+                <tr>
+                    <td>Type* :</td>
+                    <td><input type="text" name="type" value="<%= product.type %>" required placeholder="Borewell/Openwell">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Height* :</td>
+                    <td><input type="number" name="height" value="<%= product.height  %>" required placeholder="10"></td>
+                </tr>
+                <tr>
+                    <td>Power Source* :</td>
+                    <td><input type="text" name="power_source" value="<%= product.power_source %>" required
+                            placeholder="Electric"></td>
+                </tr>
+                <tr>
+                    <td>Frequency* :</td>
+                    <td><input type="number" name="frequency" value="<%= product.frequency %>" required placeholder="50"></td>
+                </tr>
+                <tr>
+                    <td>Voltage Low* :</td>
+                    <td><input type="number" name="voltageLow" value="<%= product.voltageLow %>" required placeholder="220">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Voltage High* :</td>
+                    <td><input type="number" name="voltageHigh" value="<%= product.voltageHigh %>" required placeholder="240">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Brand* :</td>
+                    <td><input type="text" name="brand" value="<%= product.brand %>" required placeholder="PumpBrand"></td>
+                </tr>
+                <tr>
+                    <td>Motor Horsepower* :</td>
+                    <td><input type="number" name="horsePower" value="<%= product.horsePower %>" required placeholder="2"></td>
+                </tr>
+                <tr>
+                    <td>Motor Phase* :</td>
+                    <td><input type="number" name="phase" value="<%= product.phase %>" required placeholder="3"></td>
+                </tr>
+                <tr>
+                    <td>Body Material* :</td>
+                    <td><input type="text" name="material" value="<%= product.material %>" required
+                            placeholder="Stainless Steel"></td>
+                </tr>
+                <tr>
+                    <td>Packaging Type* :</td>
+                    <td><input type="text" name="packagingType" value="<%= product.packagingType %>" required placeholder="Box">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Description* :</td>
+                    <td>
+                        <textarea name="description" cols="100" rows="10" required
+                            placeholder="A high-efficiency submersible pump suitable for various applications."><%= product.description %></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Image :</td>
+                    <td><input type="file" name="file">not required</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <% if(message) { %>
+                            <div style="color: red;">message : <%= message %>
+                            </div>
+
+                            <% } %>
+                                <button type="submit" class="loginBtn">Update Product</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <br><br><br><br><br>
+    <footer>
+        <div id="footer1">
+            <div class="foot">
+                <div id="centre"><br><br><br><img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715980456/MediaDB/1_zdbju6.jpg" alt="" height="100"></div>
+                <div id="centre">
+                    <h1 style="color: red; font-family: 'Times New Roman', Times, serif;">Water King Industries</h1>
+                    <h3>An ISO 9001:2008 Company</h3>
+                    <h3>Wide Range Of High Efficiency Pump</h3>
+                </div>
+            </div>
+            <div class="foot">
+                <h1 style="color: aqua;">Contact Us</h1>
+                <div><a href="https://maps.app.goo.gl/ERtkoEhEcGEwsr2b7" target="_blank"><i
+                            class="fa-solid fa-map-location-dot" id="afLogo"></i></a> Plot No.
+                    Plot No. 7-A, Dhwani Industrial Park-6, Anand Liner Gate, <br>
+                    Near Bhumi Industrial, Veraval(Shapar), Rajkot - 360024, Gujarat, India.
+                </div><br>
+                <div><a href="tel:(+91) 99040 87518"><i class="fa-solid fa-phone-volume" id="afLogo"></i></a>Cell:
+                    91+
+                    99040 87518 (Suresh Patel)</div><br>
+                <div><a href="mailto:info@waterkingpumps.com"><i class="fa-solid fa-envelope" id="afLogo"></i></a><a
+                        href="mailto:info@waterkingpumps.com">info@waterkingpumps.com</a></div>
+                <br>
+
+                <h1>Follow Us</h1>
+                <div id="face" class="icon">
+                    <a href="#" target="_blank">
+                        <i class="fa-brands fa-facebook" id="afLogofollow"></i></a>
+                </div>
+                <div id="yout" class="icon">
+                    <a href="#" target="_blank"><i class="fa-brands fa-youtube" id="afLogofollow"></i></a>
+                </div>
+                <div id="insta" class="icon">
+                    <a href="#" target="_blank"><i class="fa-brands fa-instagram" id="afLogofollow"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="bottomfoot" style="background-color: #005a9a">
+            <div id="bfa">
+                <a class="modernButton" href="/waterking/v1/home">Home</a>
+                <a class="modernButton" href="/waterking/v1/about">About Us</a>
+                <a class="modernButton" href="/waterking/v1/products" style="color: aqua;">Products</a>
+                <a class="modernButton" href="/waterking/v1/quality">Quality</a>
+                <a class="modernButton" href="/waterking/v1/contact">Cantact Us</a>
+                <a class="modernButton" href="/waterking/v1/team">Team</a>
+                <% if (isLoggedIn) {  %>
+                    <a class="modernButton" href="/waterking/v1/profile">Profile</a>
+                    <a class="modernButton" href="/waterking/v1/logout">Logout</a>
+                <% } %>
+                <% if (userRole) {  %>
+                    <a class="modernButton" href="/waterking/v1/addProduct">Launch Product</a>
+                <% } %>
+                <% if (!isLoggedIn) {  %>
+                    <a class="modernButton" href="/waterking/v1/login">Login</a>
+                    <a class="modernButton" href="/waterking/v1/signup">Signup</a>
+                <% } %>
+            </div>
+        </div>
+        <div id="bottomfoot">
+            <div>2019 © WaterKing Pumps, All rights Reserved.</div>
+            <div id="bfa">
+                <div><a href="me">Parth the developer and water key family owned.</a></div>
+            </div>
+        </div>
+    </footer>
+    <a href="#ForScroll" id="myBtn" title="Go to top"><i class="fa-solid fa-caret-up"></i></a>
+</body>
+
+</html>

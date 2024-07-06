@@ -1,0 +1,41 @@
+.profile_picture {
+    width: 200px;
+    border-radius: 50%;
+    border: rgb(255, 166, 87) solid 10px;
+    position: relative;
+    top: -100px;
+    /* left: px; */
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+    width: 800px;
+    margin: auto;
+}
+
+.name {
+    color: rgb(186, 106, 0);
+    font-weight: 1000;
+}
+
+.job {
+    color: rgb(255, 163, 43);
+    margin-bottom: 10px;
+}
+
+.strap {
+    height: 80px;
+    background-color: rgb(255, 166, 87);
+    width: 100%;
+    position: relative;
+    margin-top: 100px;
+}
+
+.text {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}

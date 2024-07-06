@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9ce5c0a43e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/css.css">
+    <title>Quality</title>
+</head>
+
+<body id="ForScroll">
+    <header>
+        <p>
+            <img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979678/MediaDB/water_key_header_a2k8xq.png" alt="Image not found">
+        </p>
+    </header>
+    <nav>
+        <a class="modernButton" href="home">Home</a>
+        <a class="modernButton" href="about">About Us</a>
+        <a class="modernButton" href="products">Products</a>
+        <a class="modernButton" href="quality" style="color: aqua;">Quality</a>
+        <a class="modernButton" href="contact">Cantact Us</a>
+        <a class="modernButton" href="team">Team</a>
+        <% if (isLoggedIn) {  %>
+            <a class="modernButton" href="profile">Profile</a>
+            <a class="modernButton" href="logout">Logout</a>
+        <% } %>
+        <% if (userRole) {  %>
+            <a class="modernButton" href="addProduct">Launch Product</a>
+        <% } %>
+        <% if (!isLoggedIn) {  %>
+            <a class="modernButton" href="login">Login</a>
+            <a class="modernButton" href="signup">Signup</a>
+        <% } %>
+    </nav>
+    
+    <script>
+        var nav = document.querySelector('nav');
+        let lastScrollPosition = window.scrollY;
+    
+        function handleScroll() {
+            const currentScrollPosition = window.scrollY;
+    
+            if (currentScrollPosition > lastScrollPosition + 10) {
+                nav.style.position = "relative";
+            } else if (currentScrollPosition < lastScrollPosition - 10 && window.innerWidth > 800) {
+                nav.style.position = "fixed";
+                setTimeout(() => {
+                    nav.style.position = "relative";
+                }, 5000);
+            }
+    
+            lastScrollPosition = currentScrollPosition;
+        }
+    
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+    </script>
+ 
+    <div class="Product-title">
+        <div class="headtext">Quality</div>
+        <img style="margin-left: auto;" src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979679/MediaDB/title_cover_xwfgsu.png" alt="">
+    </div>
+    <br>
+    <br>
+    <section>
+        <div class="title" id="achievedtitle">Our Achivements</div>
+        <div class="cardContainer" style="background-color: rgba(176, 224, 230, 0.512);">
+            <div class="card" id="Certificate">
+                <img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979678/MediaDB/swiss_jvemj2.png" id="cardphoto" alt="">
+                <div class="cardinfo">
+                    <div class="cardtitle">ISO Certificate</div>
+                </div>
+            </div>
+            <div class="card" id="Certificate">
+                <img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979677/MediaDB/NABCB_af3nbf.jpg" id="cardphoto" alt="">
+                <div class="cardinfo">
+                    <div class="cardtitle">NABCB cirtified</div>
+                </div>
+            </div>
+            <div class="card" id="Certificate">
+                <img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979678/MediaDB/EnergyRating_ybgv7c.jpg" id="cardphoto" alt="">
+                <div class="cardinfo">
+                    <div class="cardtitle">Energy Rating</div>
+                </div>
+            </div>
+            <div class="card" id="Certificate">
+                <img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979679/MediaDB/ISI1_chaotd.jpg" id="cardphoto" alt="">
+                <div class="cardinfo">
+                    <div class="cardtitle">ISI Certificate</div>
+                </div>
+            </div>
+            <div class="card" id="Certificate">
+                <img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979677/MediaDB/ISI2_dejv4r.jpg" id="cardphoto" alt="">
+                <div class="cardinfo">
+                    <div class="cardtitle">ISI Certificate</div>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.addEventListener('scroll', function () {
+                show3();
+            });
+
+            function show3() {
+                let cards = document.querySelectorAll(".card");
+                for (let idx = 0; idx < cards.length; idx++) {
+                    setTimeout(function () {
+                        cards[idx].style.opacity = "1";
+                        cards[idx].style.transform = "translateY(0%)";
+                    }, 600 * idx);
+                }
+            }
+        </script>
+    </section>
+    <br>
+    <br><br><br>
+
+    <div class="title" id="achievedtitle">Our Certificate</div>
+    <div id="box">
+        <a href="https://res.cloudinary.com/db84tbjky/image/upload/v1715980733/MediaDB/icl_mmnrvg.png" target="_blank" class="class"><img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715980733/MediaDB/icl_mmnrvg.png" alt="" width="225"></a>
+        <a href="https://res.cloudinary.com/db84tbjky/image/upload/v1715980730/MediaDB/saparGroup_kdlusy.png" target="_blank" class="class"><img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715980730/MediaDB/saparGroup_kdlusy.png" alt="" width='200'></a>
+    </div>
+    <br><br><br>
+    <section>
+        <div id="aboutUS" style="float: left;">
+            <h1>
+                Salient Feature
+            </h1>
+            <h3>
+                <ol>
+                    <li>Prompt and in time after sales services.</li>
+                    <li>Available in different range to suit different needs of customers.</li>
+                    <li>Products are ISI marked (V-4 Submersible, V-6 Submersible & openwell Submersible Pump)</li>
+                    <li>Low power consumption & high efficiency</li>
+                    <li>Low noise & Low maintenance cost.</li>
+                    <li>Reasonably priced & Quick delivery.</li>
+                    <li>Product are Well establihed in the market due to high standard quality</li>
+                    <li>Satisfactory result even at low voltage and designed to withstand wide voltage fluctuation.
+                    </li>
+                    <li>Easy availability of spares parts.</li>
+                    <li>Attractive outlook.</li>
+                </ol>
+            </h3>
+        </div>
+    </section>
+
+    <footer>
+        <div id="footer1">
+            <div class="foot">
+                <div id="centre"><br><br><br><img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715980456/MediaDB/1_zdbju6.jpg" alt="" height="100"></div>
+                <div id="centre">
+                    <h1 style="color: red; font-family: 'Times New Roman', Times, serif;">Water King Industries</h1>
+                    <h3>An ISO 9001:2008 Company</h3>
+                    <h3>Wide Range Of High Efficiency Pump</h3>
+                </div>
+            </div>
+            <div class="foot">
+                <h1 style="color: aqua;">Contact Us</h1>
+                <div><a href="https://maps.app.goo.gl/ERtkoEhEcGEwsr2b7" target="_blank"><i
+                            class="fa-solid fa-map-location-dot" id="afLogo"></i></a> Plot No.
+                    Plot No. 7-A, Dhwani Industrial Park-6, Anand Liner Gate, <br>
+                    Near Bhumi Industrial, Veraval(Shapar), Rajkot - 360024, Gujarat, India.
+                </div><br>
+                <div><a href="tel:(+91) 99040 87518"><i class="fa-solid fa-phone-volume" id="afLogo"></i></a>Cell:
+                    91+
+                    99040 87518 (Suresh Patel)</div><br>
+                <div><a href="mailto:info@waterkingpumps.com"><i class="fa-solid fa-envelope" id="afLogo"></i></a><a
+                        href="mailto:info@waterkingpumps.com">info@waterkingpumps.com</a></div>
+                <br>
+
+                <h1>Follow Us</h1>
+                <div id="face" class="icon">
+                    <a href="#" target="_blank">
+                        <i class="fa-brands fa-facebook" id="afLogofollow"></i></a>
+                </div>
+                <div id="yout" class="icon">
+                    <a href="#" target="_blank">
+                        <i class="fa-brands fa-youtube" id="afLogofollow"></i></a>
+                </div>
+                <div id="insta" class="icon">
+                    <a href="#" target="_blank"><i class="fa-brands fa-instagram" id="afLogofollow"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="bottomfoot" style="background-color: #005a9a">
+            <div id="bfa">
+                <a class="modernButton" href="home">Home</a>
+                <a class="modernButton" href="about">About Us</a>
+                <a class="modernButton" href="products">Products</a>
+                <a class="modernButton" href="quality" style="color: aqua;">Quality</a>
+                <a class="modernButton" href="contact">Cantact Us</a>
+                <a class="modernButton" href="team">Team</a>
+                <% if (isLoggedIn) {  %>
+                    <a class="modernButton" href="profile">Profile</a>
+                    <a class="modernButton" href="logout">Logout</a>
+                <% } %>
+                <% if (userRole) {  %>
+                    <a class="modernButton" href="addProduct">Launch Product</a>
+                <% } %>
+                <% if (!isLoggedIn) {  %>
+                    <a class="modernButton" href="login">Login</a>
+                    <a class="modernButton" href="signup">Signup</a>
+                <% } %>
+            </div>
+        </div>
+        <div id="bottomfoot">
+            <div>2019 © WaterKing Pumps, All rights Reserved.</div>
+            <div id="bfa">
+                <div><a href="me">Parth the developer and water key family owned.</a></div>
+            </div>
+        </div>
+    </footer>
+    <a href="#ForScroll" id="myBtn" title="Go to top"><i class="fa-solid fa-caret-up"></i></a>
+</body>
+
+</html>

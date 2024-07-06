@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9ce5c0a43e.js" crossorigin="anonymous"></script>
+    <title>About Us</title>
+    <link rel="stylesheet" href="/css/css.css">
+</head>
+
+<body id="ForScroll">
+    <header>
+        <p>
+            <img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979678/MediaDB/water_key_header_a2k8xq.png" alt="Image not found">
+        </p>
+    </header>
+    <nav>
+        <a class="modernButton" href="home">Home</a>
+        <a class="modernButton" href="about" style="color: aqua;">About Us</a>
+        <a class="modernButton" href="products">Products</a>
+        <a class="modernButton" href="quality">Quality</a>
+        <a class="modernButton" href="contact">Cantact Us</a>
+        <a class="modernButton" href="team">Team</a>
+        <% if (isLoggedIn) {  %>
+            <a class="modernButton" href="profile">Profile</a>
+            <a class="modernButton" href="logout">Logout</a>
+        <% } %>
+        <% if (userRole) {  %>
+            <a class="modernButton" href="addProduct">Launch Product</a>
+        <% } %>
+        <% if (!isLoggedIn) {  %>
+            <a class="modernButton" href="login">Login</a>
+            <a class="modernButton" href="signup">Signup</a>
+        <% } %>
+    </nav>
+
+    <script>
+        var nav = document.querySelector('nav');
+        let lastScrollPosition = window.scrollY;
+
+        function handleScroll() {
+            const currentScrollPosition = window.scrollY;
+
+            if (currentScrollPosition > lastScrollPosition + 10) {
+                nav.style.position = "relative";
+            } else if (currentScrollPosition < lastScrollPosition - 10 && window.innerWidth > 800) {
+                nav.style.position = "fixed";
+                setTimeout(() => {
+                    nav.style.position = "relative";
+                }, 5000);
+            }
+
+            lastScrollPosition = currentScrollPosition;
+        }
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+    </script>
+
+    <div class="Product-title">
+        <div class="headtext">About Us</div>
+        <img style="margin-left: auto;" src="https://res.cloudinary.com/db84tbjky/image/upload/v1715979679/MediaDB/title_cover_xwfgsu.png" alt="">
+    </div>
+    <br>
+    <div class="history">
+        <div class="title">Company History and Backgorund</div>
+        <p>Founded in 2009, Water King Industries boasts a compelling journey rooted in a rich history. Our story began
+            at the modest Virani Aghat, where a small factory initiated the production of our first offerings. Through a
+            journey marked by relentless learning and continuous improvements, we have soared to new heights. This
+            evolution paved the way for the establishment of our cutting-edge venture, Water King Industries,
+            strategically located at Shapar (Veraval) Rajkot.</p>
+        <p>Nurtured by the lessons learned from our humble beginnings, our enterprise has transformed into a beacon of
+            excellence in the industry. With a commitment to innovation, we specialize in crafting solutions that
+            redefine the standards for submersible pumpsets and openwell motors. Our state-of-the-art infrastructure at
+            Shapar (Veraval) stands as a testament to our dedication to advancement and quality.</p>
+        <div class="space"></div>
+        <p>As we reflect on our journey, it is evident that our success is not merely a result of milestones achieved
+            but a continuous commitment to learning, growth, and delivering unparalleled products to our valued
+            customers. Water King Industries remains a trailblazer in the manufacturing sector, driving progress and
+            setting new benchmarks for the industry.</p>
+    </div>
+
+    <script>
+        var scrollThreshold = -1; // Minimum scroll amount to trigger auto-scroll
+        var historyDiv = document.querySelector('.history');
+
+        historyDiv.addEventListener('scroll', function () {
+            if (historyDiv.scrollTop > scrollThreshold) {
+                // Move the main window's scroll position
+                window.scrollTo({
+                    top: 310,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    </script>
+
+
+    <!-- mission and vision section -->
+    <div class="mission">
+        <div class="title">Mission</div>
+        <div class="message">
+            <p>At Water King Industries, our mission is to engineer and deliver cutting-edge solutions in submersible
+                pumpsets and openwell motors, exceeding the expectations of our customers. We are dedicated to fostering
+                innovation, sustainability, and reliability in our products, ensuring they contribute to the prosperity
+                and well-being of communities worldwide. Committed to excellence, we strive to be a trusted partner,
+                creating lasting value for our stakeholders through continuous improvement, ethical practices, and a
+                passion for technological advancement.</p>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 700 && window.scrollY < 1200 && window.innerWidth >= 1300) {
+                show();
+            }
+            else if (window.innerWidth >= 1300) {
+                notshow();
+            }
+            else {
+                showheight();
+            }
+        });
+
+        function show() {
+            let message = document.querySelector(".message");
+            message.style.opacity = "1";
+            message.style.height = "350px"
+        }
+        function showheight() {
+            let message = document.querySelector(".message");
+            message.style.opacity = "1";
+            message.style.height = "fit-content"
+        }
+        function notshow() {
+            let message = document.querySelector(".message");
+            message.style.opacity = "0";
+            message.style.height = "0px"
+        }
+    </script>
+
+    <div id="aboutUS">
+        <div class="leftswipe">About Us</div>
+        <script>
+            function updatePosition() {
+                var tText = document.querySelector(".leftswipe");
+                window.addEventListener("scroll", updatePosition);
+                if (window.scrollY > 1000 && window.innerWidth >= 1300) {
+                    var scrollPosition = window.scrollY;
+                    var newPosition = 0 + (scrollPosition - 600) / 14;
+                    tText.style.right = newPosition + "%";
+                }
+                else {
+                    tText.style.right = "40%";
+                }
+            }
+            updatePosition();
+        </script>
+        <h3>
+            <p>
+                WaterKing Submersible Pump is one of the fast growing company in the field of agriculture submersible
+                pump
+                manufactures at Rajkot. WaterKing Submersible Pump Manufacturing a wide variety of Submersible Pumps
+                with the
+                range high capacity and efficiency.
+            </p>
+            <p>
+                WaterKing Submersible Pump is made for providing the energy efficient pump in an easy and reliable way.
+                It is
+                for any purpose, whether the water is used to satisfy thirst, irrigate fields, water to animals, speed
+                industrial process, heat or cool building, or handle waste-water.
+            </p>
+            <p>
+                Throuht continours process improvement and streamling the quality system at par the international
+                standards have
+                now acquired ISO:9001:2000 & ISI certification.
+            </p>
+            <p>
+                WaterKing Submersible Pump takes care of the customer’s need by supplying them the quality product as
+                per
+                international standards for their total satisfaction.
+            </p>
+        </h3>
+    </div>
+
+    <div class="mission">
+        <div class="title">Vision</div>
+        <div class="message" id="messageSelector">
+            <p>Empowering energy conservation, championing environmental stewardship, and maximizing efficiency: Driven
+                by an unwavering commitment to excellence, we aspire to emerge as a formidable global enterprise. Our
+                dedication is the cornerstone of groundbreaking submersible water pump technologies that epitomize
+                technical excellence, dedicated to serving humanity through innovative water management solutions. In
+                our pursuit of excellence, we aim not just to lead but to inspire a sustainable and responsible future
+                for generations to come.</p>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 1530 && window.scrollY < 2400 && window.innerWidth >= 1300) {
+                show1();
+            }
+            else if (window.innerWidth >= 1300) {
+                notshow1();
+            }
+            else {
+                showheight1();
+            }
+        });
+
+        function show1() {
+            let message = document.querySelector("#messageSelector");
+            message.style.opacity = "1";
+            message.style.height = "350px"
+        }
+        function showheight1() {
+            let message = document.querySelector("#messageSelector");
+            message.style.opacity = "1";
+            message.style.height = "fit-content"
+        }
+        function notshow1() {
+            let message = document.querySelector("#messageSelector");
+            message.style.opacity = "0";
+            message.style.height = "0px"
+        }
+    </script>
+    <footer>
+        <div id="footer1">
+            <div class="foot">
+                <div id="centre"><br><br><br><img src="https://res.cloudinary.com/db84tbjky/image/upload/v1715980456/MediaDB/1_zdbju6.jpg" alt="" height="100"></div>
+                <div id="centre">
+                    <h1 style="color: red; font-family: 'Times New Roman', Times, serif;">Water King Industries</h1>
+                    <h3>An ISO 9001:2008 Company</h3>
+                    <h3>Wide Range Of High Efficiency Pump</h3>
+                </div>
+            </div>
+            <div class="foot">
+                <h1 style="color: aqua;">Contact Us</h1>
+                <div><a href="https://maps.app.goo.gl/ERtkoEhEcGEwsr2b7" target="_blank"><i
+                            class="fa-solid fa-map-location-dot" id="afLogo"></i></a> Plot No.
+                    Plot No. 7-A, Dhwani Industrial Park-6, Anand Liner Gate, <br>
+                    Near Bhumi Industrial, Veraval(Shapar), Rajkot - 360024, Gujarat, India.
+                </div><br>
+                <div><a href="tel:(+91) 99040 87518"><i class="fa-solid fa-phone-volume" id="afLogo"></i></a>Cell:
+                    91+
+                    99040 87518 (Suresh Patel)</div><br>
+                <div><a href="mailto:info@waterkingpumps.com"><i class="fa-solid fa-envelope" id="afLogo"></i></a><a
+                        href="mailto:info@waterkingpumps.com">info@waterkingpumps.com</a></div>
+                <br>
+
+                <h1>Follow Us</h1>
+                <div id="face" class="icon">
+                    <a href="#" target="_blank">
+                        <i class="fa-brands fa-facebook" id="afLogofollow"></i></a>
+                </div>
+                <div id="yout" class="icon">
+                    <a href="#" target="_blank"><i class="fa-brands fa-youtube" id="afLogofollow"></i></a>
+                </div>
+                <div id="insta" class="icon">
+                    <a href="#" target="_blank"><i class="fa-brands fa-instagram" id="afLogofollow"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="bottomfoot" style="background-color: #005a9a">
+            <div id="bfa">
+                <a class="modernButton" href="home">Home</a>
+                <a class="modernButton" href="about" style="color: aqua;">About Us</a>
+                <a class="modernButton" href="products">Products</a>
+                <a class="modernButton" href="quality">Quality</a>
+                <a class="modernButton" href="contact">Cantact Us</a>
+                <a class="modernButton" href="team">Team</a>
+                <% if (isLoggedIn) {  %>
+                    <a class="modernButton" href="profile">Profile</a>
+                    <a class="modernButton" href="logout">Logout</a>
+                <% } %>
+                <% if (userRole) {  %>
+                    <a class="modernButton" href="addProduct">Launch Product</a>
+                <% } %>
+                <% if (!isLoggedIn) {  %>
+                    <a class="modernButton" href="login">Login</a>
+                    <a class="modernButton" href="signup">Signup</a>
+                <% } %>
+            </div>
+        </div>
+        <div id="bottomfoot">
+            <div>2019 © WaterKing Pumps, All rights Reserved.</div>
+            <div id="bfa">
+                <div><a href="me">Parth the developer and water key family owned.</a></div>
+            </div>
+        </div>
+    </footer>
+    <a href="#ForScroll" id="myBtn" title="Go to top"><i class="fa-solid fa-caret-up"></i></a>
+</body>
+
+</html>
